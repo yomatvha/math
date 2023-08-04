@@ -1,10 +1,11 @@
 import Character from '../app';
 
 test('heroCreate', () => {
-  const hero = new Character('Daemon', 40);
+  const hero = new Character('Daemon', 'hero');
   const result = {
     type: 'Daemon',
-    power: 40,
+    name: 'hero',
+    power: 0,
     getStoned: false,
     distance: 0,
   };
@@ -12,5 +13,5 @@ test('heroCreate', () => {
 });
 
 test('characterType', () => {
-  expect(() => new Character('hero', 30)).toThrow('Укажите тип персонажа');
+  expect(() => new Character('hero', 'hero')).toThrow('Укажите тип персонажа');
 });

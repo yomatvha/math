@@ -1,7 +1,7 @@
 import Character from './app';
 
 export default class Daemon extends Character {
-  constructor(type, power) {
-    super('Daemon', power);
+  constructor(type, name) {
+    super('Daemon', name);
   }
 }

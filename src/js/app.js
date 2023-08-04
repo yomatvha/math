@@ -1,11 +1,12 @@
 export default class Character {
-  constructor(type, power) {
+  constructor(type, name) {
     const types = ['Magician', 'Daemon'];
     if (!types.includes(type)) {
       throw new Error('Укажите тип персонажа');
     }
     this.type = type;
-    this.power = power;
+    this.name = name;
+    this.power = 0;
     this.getStoned = false;
     this.distance = 0;
   }
@@ -18,15 +19,15 @@ export default class Character {
     return this.getStoned;
   }
 
-  set attack(cell) {
-    this.distance = cell;
+  set attack(value) {
+    this.power = value;
   }
 
   get attack() {
-    let attack = this.power * (1 - (this.distance - 1) / 10);
+    let attackPower = this.power * (1 - (this.distance - 1) / 10);
     if (this.getStoned) {
-      attack = Number((attack - Math.log2(this.distance) * 5).toFixed(2));
+      attackPower = Number((attackPower - Math.log2(this.distance) * 5).toFixed(2));
     }
-    return attack;
+    return attackPower;
   }
 }
